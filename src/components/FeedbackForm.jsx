@@ -21,24 +21,17 @@ function FeedbackForm() {
         }
     }, [feedbackEdit])
 
-    const defaultRating = (rating) => {
-        setRating(rating)
-    }
+    const defaultRating = (rating) => setRating(rating)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(text.trim().length > 10) {
-            const newFeedback = {
-                text,
-                rating
-            }
-
+            const newFeedback = { text, rating }
             if(feedbackEdit.edit === true) {
                 updateFeedback(feedbackEdit.item.id, newFeedback)
             } else {
             addFeedback(newFeedback)
             }
-
             setText('')
             setBtnDisable(true)
         }
